@@ -1,0 +1,15 @@
+<div class="scene">
+    <svg [style.width]="cellSize * 200" [style.height]="cellSize * 200" version="1.1" xmlns="http://www.w3.org/2000/svg" (mousedown)="svgMouseDown($event)" (mouseup)="svgMouseUp($event)" (mousemove)="svgMouseMove($event)" (mousewheel)="svgMouseWheel($event)">
+        <!-- <g transform="translate(100,100)scale(0.8,0.8)"> -->
+        <g [attr.transform]="'translate(' + view_x + ',' + view_y + ')scale(' + view_scale+',' + view_scale + ')'">
+            <rect *ngFor="let cell of gameService.cells" [style.x] = "cell.x * cellSize" [style.y] = "cell.y * cellSize + (cell.x % 2 == 0 ? 0: cellSize /2)" 
+                [style.width] = "cellSize" [style.height] = "cellSize" [style.rx] = "cellSize / 10" [style.ry] = "cellSize / 10"
+                style="fill:rgb(99, 99, 99); stroke-width:1; stroke:rgb(222,222,222)" 
+                (mouseenter)="rectMouseEnter(cell)" (mouseleave)="rectMouseLeave()"/>
+                
+            <!-- <text *ngFor="let cell of gameService.cells" [attr.x] = "cell.x * cellSize + cellSize / 3" [attr.y] = "cell.y * cellSize + (cell.x % 2 == 0 ? 0: cellSize /2) + cellSize / 2"
+                fill="black" style="font-size: 10px;font-family: 'Arial';">{{cell.type}}</text> -->
+        </g>
+    </svg>
+</div>
+<div class="cell_message">{{cellMessage}}</div>

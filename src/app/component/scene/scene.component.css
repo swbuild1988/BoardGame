@@ -1,0 +1,19 @@
+.scene {
+    margin: 0 auto;
+    width: 1096px;
+    height: 756px;
+    overflow: hidden;
+}
+
+.cell_message {
+    margin: 0 auto;
+    width: 400px;
+    height: 20px;
+    overflow: hidden;
+    background-color: rgba(52, 162, 20, 0.8);
+}
+
+
+/* svg rect:hover {
+    cursor: pointer;
+} */
